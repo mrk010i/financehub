@@ -5,6 +5,7 @@ import { TrendingUp, TrendingDown, DollarSign, Calendar, Target, AlertCircle } f
 import { Expense } from '../types';
 import { loadExpenses } from '../utils/storage';
 import { formatCurrency, getCategoryColor, getCategoryIcon } from '../utils/categories';
+import { initializeSampleData } from '../utils/sampleData';
 
 ChartJS.register(
   CategoryScale,
@@ -30,6 +31,8 @@ const SpendingInsights: React.FC = () => {
   });
 
   useEffect(() => {
+    // Initialize sample data if no data exists
+    initializeSampleData();
     setExpenses(loadExpenses());
   }, []);
 

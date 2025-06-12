@@ -3,6 +3,7 @@ import { Plus, Trash2, Download, Upload, Calendar, Calculator, TrendingUp, Alert
 import { Expense, Budget } from '../types';
 import { STUDENT_EXPENSE_CATEGORIES, STUDENT_INCOME_CATEGORIES, formatCurrency, getCategoryIcon } from '../utils/categories';
 import { saveExpenses, loadExpenses, saveBudgets, loadBudgets, exportToCSV, exportToPDF } from '../utils/storage';
+import { initializeSampleData } from '../utils/sampleData';
 
 const BudgetTools: React.FC = () => {
   const [expenses, setExpenses] = useState<Expense[]>([]);
@@ -21,6 +22,8 @@ const BudgetTools: React.FC = () => {
   });
 
   useEffect(() => {
+    // Initialize sample data if no data exists
+    initializeSampleData();
     setExpenses(loadExpenses());
     setBudgets(loadBudgets());
   }, []);

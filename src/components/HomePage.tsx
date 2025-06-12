@@ -16,6 +16,7 @@ import {
 import { NavigationTab } from '../types';
 import { STUDENT_FINANCIAL_TIPS, getRandomTip } from '../utils/studentTips';
 import { formatCurrency } from '../utils/categories';
+import { initializeSampleData } from '../utils/sampleData';
 
 interface HomePageProps {
   setActiveTab: (tab: NavigationTab) => void;
@@ -30,6 +31,9 @@ const HomePage: React.FC<HomePageProps> = ({ setActiveTab }) => {
   });
 
   useEffect(() => {
+    // Initialize sample data when homepage loads
+    initializeSampleData();
+    
     const interval = setInterval(() => {
       setCurrentTip(getRandomTip());
     }, 10000); // Change tip every 10 seconds
