@@ -4,8 +4,6 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './', // <--- THIS IS THE IMPORTANT NEW LINE
-  optimizeDeps: {
-    exclude: ['lucide-react'],
-  },
+  base: './', // Keep this for the offline app
+  // DELETE THE optimizeDeps PART THAT WAS HERE
 });
